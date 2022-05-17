@@ -1,4 +1,4 @@
-const BASE_URL = 'https://aws.random.cat/meow';
+let BASE_URL = 'https://aws.random.cat/meow';
 
 const getCats = async () => {
 	try {
