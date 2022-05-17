@@ -1,22 +1,8 @@
-let BASE_URL = 'https://aws.random.cat/meow';
-
-const getCats = async () => {
-	try {
-		const data = await fetch(BASE_URL);
-		const json = await data.json();
-        console.log(json.file);
-		return json.file;
-	} catch (e) {
-		console.log(e.message);
-	}
-};
-
 const loadImg = async () => {
-	const img = document.getElementsByTagName('img')[0];
-	img.src = await getCats();
+  const img = document.getElementsByTagName("img")[0];
+  fetch("https://aws.random.cat/meow").then(function (response) {
+    response.json().then(function (convertido) {
+     img.src = convertido.file;
+    });
+  });
 };
-
-loadImg();
-
-const btn = document.getElementById('change-cat');
-btn.addEventListener('click', loadImg);
